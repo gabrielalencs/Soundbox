@@ -1,0 +1,414 @@
+/* Estilos Globais */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eae7ff;
+    transition: all .1s;
+    overflow-x: hidden !important;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    position: relative;
+}
+
+.header-brand {
+    color: #1D2631;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.brand-icon {
+    color: #34E7F8;
+}
+
+.header-list {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #dbe1ff;
+    height: 100vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 130px;
+    gap: 15px;
+    margin-right: -100vw;
+    animation-duration: 0.4s;
+    transition: all .2s;
+}
+
+.header-link {
+    color: #0e0055;
+    font-size: 19px;
+    letter-spacing: 1.2px;
+    transition: all .3s;
+    font-weight: 600;
+}
+
+.header-link:hover {
+    color: #34E7F8;
+}
+
+@keyframes showSidebar {
+    from {
+        margin-right: -100vw;
+    }
+
+    top {
+        margin-right: 0;
+    }
+}
+
+/* Button Mobile Sidebar */
+
+.button-sidebar {
+    position: absolute;
+    top: 42px;
+    right: 8%;
+    z-index: 99;
+    height: 27px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: 0.5s;
+}
+
+.button-sidebar .line-1,
+.line-2,
+.line-3 {
+    width: 100%;
+    height: 4px;
+    background-color: #1D2631;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+.button-sidebar.button-close .line-1 {
+    transform: translateY(12px) rotate(135deg);
+}
+
+.button-sidebar.button-close .line-2 {
+    transform: scale(0);
+}
+
+.button-sidebar.button-close .line-3 {
+    transform: translateY(-6px) rotate(-135deg);
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Button Dark Mode */
+
+.btn-dark-mode {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 0 7px;
+    border: 2px solid #08002e;
+    width: 60px;
+    border-radius: 20px;
+    position: relative;
+    transition: all .3s;
+}
+
+.btn-dark-mode::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #08002e;
+    transition: all .3s;
+}
+
+.bi-brightness-high-fill {
+    margin-left: -2px;
+    color: #FFC409;
+}
+
+.bi-moon-stars-fill {
+    color: #5901D8;
+}
+
+input[type="checkbox"]:checked+.btn-dark-mode:after {
+    left: 33px;
+}
+
+/* Responsive Header */
+
+@media screen and (min-width: 992px) {
+    .header {
+        padding: 30px 20px;
+    }
+
+    .button-sidebar {
+        display: none;
+    }
+
+    .header .header-navigation .header-list {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        height: max-content;
+        width: max-content;
+        margin-right: 0 !important;
+        padding-top: 0;
+        gap: 30px;
+        background-color: transparent;
+    }
+
+    .header-link {
+        color: #1D2631;
+        font-size: 17px;
+        letter-spacing: 1.2px;
+        transition: all .3s;
+    }
+}
+
+/* Main Content */
+
+.main {
+    margin-top: 15px;
+}
+
+/* Buttons Phones */
+
+.button-phones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-phones button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all .4s;
+}
+
+.button-phones .img-button {
+    width: 60px;
+}
+
+.button-phones .button-1 {
+    background-color: #1A8496;
+}
+
+.button-phones .button-2 {
+    background-color: #4C3829;
+}
+
+.button-phones .button-3 {
+    background-color: #6E6C6B;
+}
+
+.button-phones button:hover {
+    transform: translateY(-7px);
+}
+
+/* Content */
+
+.container-image {
+    text-align: center;
+}
+
+.container-image .main-img {
+    width: 80%;
+    max-width: 500px;
+}
+
+.container-texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto 50px;
+}
+
+.container-texts h1 {
+    font-size: clamp(15px, 7vw, 3.5rem);
+    color: #090038;
+}
+
+.container-texts p {
+    font-size: clamp(18px, 1.8vw, 2rem);
+    font-weight: 500;
+    color: #757575;
+}
+
+.container-texts span {
+    font-size: clamp(38px, 8vw, 3.5rem);
+    font-weight: 700;
+    color: #090038;
+}
+
+.container-texts button {
+    margin-top: 10px;
+    border: 2px solid #090038;
+    color: #090038;
+    font-weight: 600;
+    padding: 20px 80px;
+    font-size: 20px;
+    background-color: transparent;
+    transition: all .3s;
+}
+
+.container-texts button:hover {
+    background-color: #090038;
+    color: #FFF;
+}
+
+/* Responsive Main Content */
+
+@media screen and (min-width: 992px) {
+    .main {
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-phones {
+        flex-direction: column;
+    }
+
+    .container-image .main-img {
+        max-width: 450px;
+    }
+
+    .container-texts {
+        justify-content: center;
+        align-items: flex-start;
+        margin: 0 0;
+        width: 400px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .main {
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container-image .main-img {
+        max-width: 550px;
+    }
+
+    .button-phones button {
+        padding: 15px;
+    }
+    
+    .button-phones .img-button {
+        width: 70px;
+    }
+
+    .container-texts {
+        text-align: left;
+    }
+}
+
+/* Dark Mode */
+
+/* Dark Mode - Header */
+
+body.dark-mode {
+    background-color: #1D2631;
+}
+
+.dark-mode .header-brand {
+    color: #FFF;
+}
+
+.dark-mode .line-1 {
+    background-color: #FFF;
+}
+
+.dark-mode .line-2 {
+    background-color: #FFF;
+}
+
+.dark-mode .line-3 {
+    background-color: #FFF;
+}
+
+.dark-mode .header-link {
+    color: #FFF;
+}
+
+.dark-mode .header-link:hover {
+    color: #34E7F8;
+}
+
+.dark-mode .header-list {
+    background-color: rgb(27, 34, 46);
+}
+
+.dark-mode .btn-dark-mode {
+    border: 2px solid #FFF;
+}
+
+.dark-mode .btn-dark-mode::after {
+    background-color: #FFF;
+}
+
+/* Dark Mode - Main Content */
+
+.dark-mode .container-texts h1 {
+    color: #FFF;
+}
+
+.dark-mode .container-texts p {
+    color: #A5A8AD;
+}
+
+.dark-mode .container-texts span {
+    color: #FFF;
+}
+
+.dark-mode .container-texts button {
+    border: 2px solid #FFF;
+    color: #FFF;
+}
+
+.dark-mode .container-texts button:hover {
+    background-color: #FFF;
+    color: #090038;
+}
